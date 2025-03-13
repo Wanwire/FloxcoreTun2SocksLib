@@ -1,0 +1,69 @@
+diff --git a/thirdparty/hev-socks5-tunnel-d46a36fbf43/src/hev-jni.c b/thirdparty/hev-socks5-tunnel-d46a36fbf43/src/hev-jni.c
+index ca2caa2..27685b2 100644
+--- a/thirdparty/hev-socks5-tunnel-d46a36fbf43/src/hev-jni.c
++++ b/thirdparty/hev-socks5-tunnel-d46a36fbf43/src/hev-jni.c
+@@ -1,3 +1,59 @@
++#if 1
++
++#include <jni.h>
++#include <stddef.h>
++#include "hev-main.h"
++
++JNIEXPORT jint JNICALL
++Java_com_wanwire_libtun2socks_Tun2Socks_main (JNIEnv *env, jobject obj,
++                                              jstring var1, jint var2)
++{
++    const char *c_var1 = (*env)->GetStringUTFChars (env, var1, 0);
++    jint result = hev_socks5_tunnel_main (c_var1, var2);
++    (*env)->ReleaseStringUTFChars (env, var1, c_var1);
++    return result;
++}
++
++JNIEXPORT jint JNICALL
++Java_com_wanwire_libtun2socks_Tun2Socks_mainFromFile (JNIEnv *env, jobject obj,
++                                                      jstring var1, jint var2)
++{
++    const char *c_var1 = (*env)->GetStringUTFChars (env, var1, 0);
++    jint result = hev_socks5_tunnel_main_from_file (c_var1, var2);
++    (*env)->ReleaseStringUTFChars (env, var1, c_var1);
++    return result;
++}
++
++JNIEXPORT jint JNICALL
++Java_com_wanwire_libtun2socks_Tun2Socks_mainFromStr (JNIEnv *env, jobject obj,
++                                                     jstring var1, jint var2,
++                                                     jint var3)
++{
++    const char *c_var1 = (*env)->GetStringUTFChars (env, var1, 0);
++    jint result = hev_socks5_tunnel_main_from_str (c_var1, var2, var3);
++    (*env)->ReleaseStringUTFChars (env, var1, c_var1);
++    return result;
++}
++
++JNIEXPORT void JNICALL
++Java_com_wanwire_libtun2socks_Tun2Socks_quit (JNIEnv *env, jobject obj)
++{
++    hev_socks5_tunnel_quit ();
++}
++
++JNIEXPORT void JNICALL
++Java_com_wanwire_libtun2socks_Tun2Socks_stats (JNIEnv *env, jobject obj,
++                                               jlongArray var1)
++{
++    size_t tx, rx, rx_packets, rx_bytes;
++    hev_socks5_tunnel_stats (&tx, &rx, &rx_packets, &rx_bytes);
++
++    jlong stats[4] = { (jlong)tx, (jlong)rx, (jlong)rx_packets,
++                       (jlong)rx_bytes };
++    (*env)->SetLongArrayRegion (env, var1, 0, 4, stats);
++}
++
++#else
+ /*
+  ============================================================================
+  Name        : hev-jni.c
+@@ -158,3 +214,4 @@ native_get_stats (JNIEnv *env, jobject thiz)
+ }
+ 
+ #endif /* ANDROID */
++#endif
