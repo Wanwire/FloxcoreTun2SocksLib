@@ -23,7 +23,7 @@ jobs:
       - name: Prepare
         uses: nttld/setup-ndk@v1
         with:
-          ndk-version: r27c
+          ndk-version: r28b
       - name: Build aar
         run: make
 
