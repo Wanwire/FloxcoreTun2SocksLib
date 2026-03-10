@@ -1,4 +1,4 @@
-HEV := hev-socks5-tunnel-d46a36fbf43
+HEV := hev-socks5-tunnel-5ec615875f3
 HEV_DIR := $(CURDIR)/../thirdparty/$(HEV)
 CONFIGURATION_BUILD_DIR ?= $(CURDIR)/out
 CONFIGURATION_TEMP_DIR ?= $(CURDIR)/.tmp

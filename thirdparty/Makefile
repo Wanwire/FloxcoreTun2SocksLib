@@ -1,5 +1,5 @@
 
-HEV = hev-socks5-tunnel-d46a36fbf43
+HEV = hev-socks5-tunnel-5ec615875f3
 
 default: $(HEV)/patched
 
