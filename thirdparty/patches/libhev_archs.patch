@@ -1,7 +1,7 @@
-diff --git a/thirdparty/hev-socks5-tunnel-5ec615875f3/Application.mk b/thirdparty/hev-socks5-tunnel-5ec615875f3/Application.mk
+diff --git a/thirdparty/hev-socks5-tunnel-2.17.1/Application.mk b/thirdparty/hev-socks5-tunnel-2.17.1/Application.mk
 index 63a7a93..9cd6412 100644
---- a/thirdparty/hev-socks5-tunnel-5ec615875f3/Application.mk
-+++ b/thirdparty/hev-socks5-tunnel-5ec615875f3/Application.mk
+--- a/thirdparty/hev-socks5-tunnel-2.17.1/Application.mk
++++ b/thirdparty/hev-socks5-tunnel-2.17.1/Application.mk
 @@ -14,7 +14,7 @@
  #
  

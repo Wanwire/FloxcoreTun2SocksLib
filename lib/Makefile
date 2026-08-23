@@ -1,4 +1,4 @@
-HEV := hev-socks5-tunnel-5ec615875f3
+HEV := hev-socks5-tunnel-2.17.1
 HEV_DIR := $(CURDIR)/../thirdparty/$(HEV)
 CONFIGURATION_BUILD_DIR ?= $(CURDIR)/out
 CONFIGURATION_TEMP_DIR ?= $(CURDIR)/.tmp
@@ -23,7 +23,7 @@ default: $(DESTDIR)/$(AAR_FILE)
 ndkbuild:
 	@mkdir -p $(CONFIGURATION_TEMP_DIR)
 	@cp -r $(HEV_DIR) $(CONFIGURATION_TEMP_DIR)/jni
-	@cd $(CONFIGURATION_TEMP_DIR)/jni && ndk-build -j
+	@cd $(CONFIGURATION_TEMP_DIR)/jni && ndk-build APP_MODULES=hev-socks5-tunnel -j
 
 # Rule to compile the Java file
 $(AAR_DIR)/$(JAVA_CLASS_DIR)/$(subst .,/,$(PACKAGE))/Tun2Socks.class: src/Tun2Socks.java
