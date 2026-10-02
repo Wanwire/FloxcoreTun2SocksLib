@@ -14,5 +14,6 @@ public class Tun2Socks {
     public native int mainFromFile(String configPath, int tunFd);
     public native int mainFromStr(String configStr, int configLen, int tunFd);
     public native void quit();
+    public native void clearQuit();
     public native void stats(long[] stats);
 }
