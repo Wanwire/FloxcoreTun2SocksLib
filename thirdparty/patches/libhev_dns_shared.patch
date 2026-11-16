@@ -1,7 +1,7 @@
-diff --git a/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-config.c b/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-config.c
+diff --git a/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-config.c b/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-config.c
 index 3f29ff0..94c369f 100644
---- a/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-config.c
-+++ b/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-config.c
+--- a/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-config.c
++++ b/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-config.c
 @@ -46,6 +46,7 @@ static int udp_copy_buffer_nums;
  static int connect_timeout;
  static int tcp_read_write_timeout;
@@ -40,10 +40,10 @@ index 3f29ff0..94c369f 100644
  int
  hev_config_get_misc_max_session_count (void)
  {
-diff --git a/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-config.h b/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-config.h
+diff --git a/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-config.h b/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-config.h
 index 25821ef..fcd2276 100644
---- a/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-config.h
-+++ b/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-config.h
+--- a/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-config.h
++++ b/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-config.h
 @@ -52,6 +52,9 @@ int hev_config_get_misc_task_stack_size (void);
  int hev_config_get_misc_tcp_buffer_size (void);
  int hev_config_get_misc_udp_recv_buffer_size (void);
@@ -54,11 +54,11 @@ index 25821ef..fcd2276 100644
  int hev_config_get_misc_max_session_count (void);
  int hev_config_get_misc_connect_timeout (void);
  int hev_config_get_misc_tcp_read_write_timeout (void);
-diff --git a/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-socks5-session-dns.c b/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-socks5-session-dns.c
+diff --git a/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-socks5-session-dns.c b/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-socks5-session-dns.c
 new file mode 100644
 index 0000000..01c0f6e
 --- /dev/null
-+++ b/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-socks5-session-dns.c
++++ b/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-socks5-session-dns.c
 @@ -0,0 +1,590 @@
 +/*
 + ============================================================================
@@ -650,11 +650,11 @@ index 0000000..01c0f6e
 +
 +    return okptr;
 +}
-diff --git a/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-socks5-session-dns.h b/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-socks5-session-dns.h
+diff --git a/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-socks5-session-dns.h b/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-socks5-session-dns.h
 new file mode 100644
 index 0000000..7f7e997
 --- /dev/null
-+++ b/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-socks5-session-dns.h
++++ b/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-socks5-session-dns.h
 @@ -0,0 +1,74 @@
 +/*
 + ============================================================================
@@ -730,10 +730,10 @@ index 0000000..7f7e997
 +                                     struct udp_pcb *pcb);
 +
 +#endif /* __HEV_SOCKS5_SESSION_DNS_H__ */
-diff --git a/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-socks5-tunnel.c b/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-socks5-tunnel.c
+diff --git a/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-socks5-tunnel.c b/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-socks5-tunnel.c
 index 2fe66d7..07ccfc3 100644
---- a/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-socks5-tunnel.c
-+++ b/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-socks5-tunnel.c
+--- a/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-socks5-tunnel.c
++++ b/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-socks5-tunnel.c
 @@ -37,6 +37,7 @@
  #include "hev-config-const.h"
  #include "hev-socks5-session-tcp.h"
@@ -777,10 +777,10 @@ index 2fe66d7..07ccfc3 100644
  static void
  udp_recv_handler (void *arg, struct udp_pcb *pcb, struct pbuf *p,
                    const ip_addr_t *addr, u16_t port)
-@@ -259,6 +288,19 @@ udp_recv_handler (void *arg, struct udp_pcb *pcb, struct pbuf *p,
+@@ -346,6 +375,19 @@ udp_recv_handler (void *arg, struct udp_pcb *pcb, struct pbuf *p,
          }
      }
- 
+
 +    if (hev_config_get_misc_dns_shared_address () && port == 53 &&
 +        addr->type == IPADDR_TYPE_V4 &&
 +        ip_2_ip4 (addr)->addr == hev_config_get_misc_dns_shared_address ()) {
@@ -794,6 +794,6 @@ index 2fe66d7..07ccfc3 100644
 +        }
 +    }
 +
-     udp = hev_socks5_session_udp_new (pcb, &mutex);
-     if (!udp) {
-         udp_remove (pcb);
+     /* As for TCP, the session can't be destroyed here. */
+     stack_size = hev_config_get_misc_task_stack_size ();
+     task = hev_task_new (stack_size);

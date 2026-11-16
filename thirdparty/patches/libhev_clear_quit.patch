@@ -1,7 +1,7 @@
-diff --git a/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-main.c b/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-main.c
+diff --git a/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-main.c b/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-main.c
 index 9d90c5a..e20e3ad 100644
---- a/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-main.c
-+++ b/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-main.c
+--- a/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-main.c
++++ b/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-main.c
 @@ -122,6 +122,12 @@ hev_socks5_tunnel_quit (void)
      hev_socks5_tunnel_stop ();
  }
@@ -15,10 +15,10 @@ index 9d90c5a..e20e3ad 100644
  #ifndef ENABLE_LIBRARY
  static void
  show_help (const char *self_path)
-diff --git a/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-main.h b/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-main.h
+diff --git a/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-main.h b/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-main.h
 index 49896b9..68aa60f 100644
---- a/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-main.h
-+++ b/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-main.h
+--- a/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-main.h
++++ b/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-main.h
 @@ -69,6 +69,15 @@ int hev_socks5_tunnel_main_from_str (const unsigned char *config_str,
   */
  void hev_socks5_tunnel_quit (void);
@@ -35,14 +35,14 @@ index 49896b9..68aa60f 100644
  /**
   * hev_socks5_tunnel_stats:
   * @tx_packets (out): transmitted packets
-diff --git a/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-socks5-tunnel.c b/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-socks5-tunnel.c
+diff --git a/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-socks5-tunnel.c b/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-socks5-tunnel.c
 index 2fe66d7..6519d13 100644
---- a/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-socks5-tunnel.c
-+++ b/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-socks5-tunnel.c
-@@ -768,6 +768,14 @@ retry:
+--- a/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-socks5-tunnel.c
++++ b/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-socks5-tunnel.c
+@@ -919,6 +919,14 @@ retry:
      atomic_fetch_and (&tsync, ~SYNC_WAIT);
  }
- 
+
 +void
 +hev_socks5_tunnel_clear_stop (void)
 +{
@@ -51,13 +51,13 @@ index 2fe66d7..6519d13 100644
 +    atomic_fetch_and (&tsync, ~SYNC_STOP);
 +}
 +
- void
+ EXPORT_SYMBOL void
  hev_socks5_tunnel_stats (size_t *tx_packets, size_t *tx_bytes,
                           size_t *rx_packets, size_t *rx_bytes)
-diff --git a/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-socks5-tunnel.h b/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-socks5-tunnel.h
+diff --git a/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-socks5-tunnel.h b/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-socks5-tunnel.h
 index 3086329..04a5613 100644
---- a/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-socks5-tunnel.h
-+++ b/thirdparty/hev-socks5-tunnel-2.17.1/src/hev-socks5-tunnel.h
+--- a/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-socks5-tunnel.h
++++ b/thirdparty/hev-socks5-tunnel-2.20.0/src/hev-socks5-tunnel.h
 @@ -17,6 +17,7 @@ void hev_socks5_tunnel_fini (void);
  
  int hev_socks5_tunnel_run (void);

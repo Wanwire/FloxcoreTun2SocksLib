@@ -1,4 +1,4 @@
-HEV := hev-socks5-tunnel-2.17.1
+HEV := hev-socks5-tunnel-2.20.0
 HEV_DIR := $(CURDIR)/../thirdparty/$(HEV)
 CONFIGURATION_BUILD_DIR ?= $(CURDIR)/out
 CONFIGURATION_TEMP_DIR ?= $(CURDIR)/.tmp
